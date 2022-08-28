@@ -11,7 +11,7 @@
                     <p style="font-size: 64px; font-style: sans sherif;" data-aos="fade-right" data-aos-duration="1000">NEW SHOES</p>
                 </div>
                 <div class="row-lg-5">
-                    <a href="#" class="btn-slider btn-outline-danger" style="color: #fff;">Shop Now</a>
+                    <a href="/catalog" class="btn-slider btn-outline-danger" style="color: #fff;">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     <div class="card-content">
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[0]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[0]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
 
@@ -98,7 +98,7 @@
                     <div class="card-content">
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[1]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[1]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
 
@@ -123,7 +123,7 @@
                     <div class="card-content">
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[2]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[2]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
 
@@ -148,7 +148,7 @@
                     <div class="card-content">
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[3]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[3]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
 
@@ -173,7 +173,7 @@
                     <div class="card-content">
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[4]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[4]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
 
@@ -197,7 +197,7 @@
                     <div class="card-content">
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[5]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[5]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
 
@@ -222,7 +222,7 @@
                     <div class="card-content">
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[6]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[6]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
 
@@ -247,7 +247,7 @@
                         <div class="product-thumb">
                             <a href="/product-show/{{$products[7]->id}}"> <img id="img-thumbail" src="/storage/product_images/{{$products[7]->images[0]->image}}" style="width: 270px; height:270px" alt=""></a>
 
-                            <div class="add-to-cart">
+                            <div class="add-to-cart-catalog">
                                 <a href="#">
                                     <!-- add to cart -->
                                     <input type="hidden" value="{{$products[7]->id}}" id="id7">

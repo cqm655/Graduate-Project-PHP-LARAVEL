@@ -263,12 +263,11 @@ class ProductController extends Controller
         if (!$product) {
             abort(404);
         } else {
-            $images1 = $product->images->take(1);
-            $images2 = $product->images->take(2);
-            $images3 = $product->images->take(3);
-            $images4 = $product->images->take(4);
-            return view('productCRUD.productShow', compact('product', 'size', 'images1', 'images2', 'images3', 'images4'));
+            $images = DB::table('images')->select()->where('product_id', '=', $product->id)->get();
+      
+            return view('productCRUD.productShow', compact('product', 'size', 'images'));
         }
+       
     }
 
     public function delete(Request $req)
@@ -446,9 +445,12 @@ class ProductController extends Controller
         
         $products = Product::with(['images'])->latest()->take(8)->get();
 
-        return view('allProducts', compact(
+         if($products != null){
+            return view('allProducts', compact(
             'products',
-
         ));
+         }
+         return view('/contact');
+        
     }
 }

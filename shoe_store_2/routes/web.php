@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 // CRUD pages routes
 Route::get('/product-create', [ProductController::class, 'create'])->name('product.create')->middleware('auth');
 Route::post('/add-product', [ProductController::class, 'store'])->middleware('auth');
-Route::get('/product-show/{id}', [ProductController::class, 'productShow'])->name('product.show')->middleware('auth');
+Route::get('/product-show/{id}', [ProductController::class, 'productShow'])->name('product.show');
 Route::post('/product-edit', [ProductController::class, 'editPage'])->name('product.editPage')->middleware('auth');
 
 // End crud pages routes
