@@ -143,25 +143,16 @@
         </div>
     </div>
 </div>
-
-
-
 <!-- preview image -->
 <script type="text/javascript">
     function previewImages() {
-
         var $preview = $('.preview').empty();
-
         if (this.files) $.each(this.files, readAndPreview);
-
         function readAndPreview(i, file) {
-
             if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
                 return alert(file.name + " is not an image");
             } // else...
-
             var reader = new FileReader();
-
             $(reader).on("load", function() {
                 let div = document.createElement("div");
 
@@ -170,16 +161,10 @@
                     height: 300
                 }));
             });
-
             reader.readAsDataURL(file);
-
         }
-
     }
-
     $('#file-input').on("change", previewImages);
-
-
     document.querySelector('#image').addEventListener("change", previewImages);
 </script>
 

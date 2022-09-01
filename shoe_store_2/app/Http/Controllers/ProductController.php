@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 
+
 class ProductController extends Controller
 {
     // main page controller
@@ -418,23 +419,34 @@ class ProductController extends Controller
 
     public function search(Request $req)
     {
-        $products = Product::all();
-        $productStyle = Product::all();
-        $productColor = PRoduct::all();
-
-        if ($req->keyword != '') {
-            $products = Product::where('product_name', 'LIKE', '%' . $req->keyword . '%')->get();
-            $productStyle = Product::where('product_style', 'LIKE', '%' . $req->keyword . '%')->get();
-            $productColor = Product::where('product_color', 'LIKE', '%' . $req->keyword . '%')->get();
-            // $productPrice = Product::where('product_style','BETWEEN',$req->keyword.'AND'.$req->keyword1)->get();
-        }
-
-        return response()->json([
+      
+        if ($req->dataTitle != '') {
+            $products = Product::where('product_name', 'LIKE', '%' . $req->dataTitle . '%')->get();
+               return response()->json([
             'products' => $products,
-            'productStyle' => $productStyle,
-            'productColor' => $productColor,
-            //    'productPrice' => $productPrice,
+   
         ]);
+          
+       }
+        if ($req->dataStyle != '') {
+            $productStyle = Product::where('product_style', 'LIKE', '%' . $req->dataStyle . '%')->get();
+               return response()->json([
+            'productStyle' => $productStyle,
+
+        ]);
+          
+       }
+        if ($req->dataColor != '') {
+            $productColor = Product::where('product_color', 'LIKE', '%' . $req->dataColor . '%')->get();
+               return response()->json([
+            'productColor' => $productColor,
+
+        ]);
+          
+       }
+      
+
+     
     }
 
     public function allProducts()

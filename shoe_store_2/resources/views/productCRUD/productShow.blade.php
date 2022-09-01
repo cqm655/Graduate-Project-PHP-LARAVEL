@@ -15,12 +15,8 @@
 </section>
 
 <hr>
-
-
-
 <div class="container justify-content-center">
     <div class="row">
-      
         <div class="col-sm-3">
             <div class="column-img">
                 <img id="img-fit" src="/storage/product_images/{{$images[0]->image}}" onclick="myFunction(this);">
@@ -42,6 +38,7 @@
             </div>
         </div>
         <div class="col-sm">
+
             <form action="/addToCart" method="POST">
                 @csrf
                 <h3>{{$product->product_name}}</h3>
@@ -54,22 +51,12 @@
                 <h6>STIL: @php echo ucfirst("{$product->product_style}"); @endphp</h6> <!-- Uppercase fisrt letter -->
                 <hr>
                 <h6>Marimi:
-                    @foreach($size as $i )
-                    @php
-                    $value = json_decode($i);
-                  
-                    @endphp
-
-                    @endforeach
 
                 </h6>
+                <h4>{{$product->product_size}}</h4>
                 <hr>
                 <div class="container d-flex" style="padding: 0;">
-                  
-
                     <input type="hidden" value="{{$product->id}}" id="id">
-                    <!-- <a id="cart" class="btn btn-outline-secondary"><img src="/storage/icons/addToCart.jpg" id="addToCart"></a> -->
-
             </form>
             <div class="cartbtn">
                 <a class="cart-button" id="cart">
@@ -88,15 +75,34 @@
 <!-- Cart call method -->
 <script>
     const cartButtons = document.querySelectorAll('.cart-button');
-
     cartButtons.forEach(button => {
         button.addEventListener('click', cartClick);
     });
-
     function cartClick() {
         let button = this;
         button.classList.add('clicked');
     }
+</script>
+<!-- add to card badge number/info in DB -->
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    let i = 0;
+    $('#cart').click(function() {
+        i++;
+        $('.badge').text(i);
+        id = $('#id').val();
+        $.ajax({
+            url: "/addcart",
+            type: "POST",
+            data: {
+                id: id,
+            }
+        })
+    });
 </script>
 
 <!-- expand image for view -->
@@ -115,29 +121,6 @@
     }
 </script>
 
-<!-- add to card badge number/info in DB -->
-<script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    let i = 0;
-    $('#cart').click(function() {
-        i++;
-        $('.badge').text(i);
-
-        id = $('#id').val();
-
-        $.ajax({
-            url: "/addcart",
-            type: "POST",
-            data: {
-                id: id,
-            }
-        })
-    });
-</script>
 
 
 @endsection

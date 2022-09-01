@@ -16,7 +16,7 @@ Route::post('/product-edit', [ProductController::class, 'editPage'])->name('prod
 
 // All products from DB in admin mode
 Route::get('/all-products',[ProductController::class,'productDB'])->name('allProducts')->middleware('auth');
-Route::post('/all/products/search',[ProductController::class,'search'])->name('searchTitle')->middleware('auth');
+Route::get('/search',[ProductController::class,'search'])->middleware('auth');
 
 // Add/show cart
 Route::post('/addcart',[CartController::class,'addToCart']);
